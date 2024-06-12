@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Locale;
+import java.time.LocalDateTime;
+
+public class testeStringData {
+    public static Scanner leia = new Scanner(System.in);
+    public static Locale brasil = new Locale("pt", "BR");
+    public static void main(String[] args){
+
+        String nome;
+
+        System.out.print("Digite seu nome: ");
+        nome = leia.next();
+
+        // Data
+        LocalDate hoje = LocalDate.now();
+        LocalDateTime agora = LocalDateTime.now();
+        String diaSemana = hoje.getDayOfWeek().getDisplayName(TextStyle.FULL, brasil);
+        String saudacao;
+
+        if(agora.getHour() >= 0 && agora.getHour() < 12){
+            saudacao = "Bom dia";
+        }else if(agora.getHour() >= 12 && agora.getHour() < 18){
+            saudacao = "Boa tarde";
+        }else if (agora.getHour() >= 18 && agora.getHour() < 24){
+            saudacao = "Boa noite";
+        }else{
+            saudacao = "Olá.";
+        }
+
+        System.out.printf("%s, %s. Hoje é %s.%n", saudacao, nome, diaSemana);
+
+    }
+}
