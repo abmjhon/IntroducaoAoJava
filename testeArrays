@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class testeArrays {
+    public static Scanner leia = new Scanner(System.in);
+    public static void main (String[] args){
+
+        int[] notas = new int[4];
+        System.out.print("Informe sua nota de matemática: ");
+        notas[0] = leia.nextInt();
+        System.out.print("Informe sua nota de português: ");
+        notas[1] = leia.nextInt();
+        System.out.print("Informe sua nota de ciências da natureza: ");
+        notas[2] = leia.nextInt();
+        System.out.print("Informe sua nota de ciências humanas: ");
+        notas[3] = leia.nextInt();
+
+        int maior = notas[0];
+        int menor = notas[0];
+        int media = 0;
+
+        for (int i=0; i < notas.length; i++){
+            if (notas[i] > maior){
+                maior = notas[i];
+            }
+            if (notas[i] < menor) {
+                menor = notas[i];
+            }
+            media += notas[i];
+        }
+        System.out.println("Maior nota: " + maior);
+        System.out.println("Menor nota: " + menor);
+        System.out.println("Sua média foi: " + media/notas.length);
+
+
+    }
+
+}
